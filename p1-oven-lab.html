@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#080706" />
+  <title>P1 · Oven POC Lab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Italiana&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="p1-oven-lab.css" />
+</head>
+<body>
+  <main class="lab-shell">
+    <header class="lab-head">
+      <div><p class="eyebrow">P1 · OVEN POC</p><h1>Can the oven deliver the exact pizza?</h1></div>
+      <div class="status-chip"><span class="status-dot"></span><span id="status-label">IDLE</span></div>
+    </header>
+
+    <section class="oven-stage" aria-label="Prueba de horno interactivo">
+      <div class="oven-backdrop"></div>
+      <div class="oven-glow"></div>
+      <div class="oven-frame">
+        <div class="oven-mouth">
+          <div class="fire fire-a"></div><div class="fire fire-b"></div><div class="embers"></div>
+          <div class="occlusion-zone" aria-hidden="true"></div>
+        </div>
+      </div>
+      <div id="peel" class="peel" aria-hidden="true"><div class="peel-handle"></div><div class="peel-head"><img id="peel-pizza" alt="" /></div></div>
+      <div id="foreground-product" class="foreground-product" aria-live="polite">
+        <img id="foreground-image" alt="" />
+        <div class="foreground-copy"><p id="foreground-kicker" class="eyebrow"></p><h2 id="foreground-name"></h2><p id="foreground-desc"></p><strong id="foreground-price"></strong><button id="choose-another" type="button">Elegir otra</button></div>
+      </div>
+    </section>
+
+    <section class="controls">
+      <div class="pizza-picker" role="group" aria-label="Elegir pizza">
+        <button data-pizza="margherita" class="pizza-btn active">Margherita</button>
+        <button data-pizza="diavola" class="pizza-btn">Diavola</button>
+        <button data-pizza="mortadella" class="pizza-btn">Mortadella & Pistachio</button>
+      </div>
+      <div class="playback">
+        <button id="play" class="primary" type="button">PLAY OVEN</button>
+        <button id="reset" type="button">RESET</button>
+      </div>
+      <div class="telemetry">
+        <div><span>Selected pizza</span><strong id="telemetry-pizza">pizza-margherita</strong></div>
+        <div><span>Resolved media</span><strong id="telemetry-media">placeholder</strong></div>
+        <div><span>State</span><strong id="telemetry-state">IDLE</strong></div>
+        <div><span>Contract</span><strong>NO 3D · reusable reveal</strong></div>
+      </div>
+    </section>
+  </main>
+  <script src="p0-media-registry.js"></script>
+  <script src="p1-oven-lab.js"></script>
+</body>
+</html>
