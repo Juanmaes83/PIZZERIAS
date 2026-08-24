@@ -8,11 +8,26 @@
   const STATES=['IDLE','PIZZA_SELECTED','PREPARING','APPROACH','PEEL_ENTER','CONTACT','MICRO_ADJUST','LOAD','EXTRACT','PRESENT','FOREGROUND_REVEAL','PRODUCT_READY'];
   let selected='margherita',running=false,timers=[];
   const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
-  const peel=$('#peel'),peelPizza=$('#peel-pizza'),product=$('#foreground-product'),stage=$('.oven-stage');
+  const peel=$('#peel'),peelPizza=$('#peel-pizza'),product=$('#foreground-product'),stage=$('.oven-stage'),premiumOven=$('#premium-oven');
   const setState=state=>{if(!STATES.includes(state))return;$('#status-label').textContent=state;$('#telemetry-state').textContent=state;document.body.dataset.ovenState=state};
   const schedule=(fn,ms)=>timers.push(setTimeout(fn,ms));
   const clearTimers=()=>{timers.forEach(clearTimeout);timers=[]};
   const pose=(transform,duration='.35s',ease='cubic-bezier(.22,.72,.28,1)')=>{peel.style.transition=`transform ${duration} ${ease},opacity .22s ease,filter .18s ease`;requestAnimationFrame(()=>{peel.style.transform=transform})};
+
+  function initPremiumOven(){
+    const uri=window.PremiumOvenMasterDataUri;
+    const active=Boolean(uri&&uri.startsWith('data:image'));
+    if(active){
+      premiumOven.style.backgroundImage=`url(${uri})`;
+      document.body.classList.add('has-premium-oven');
+      $('#asset-label').textContent='OVEN MASTER';
+      $('#telemetry-oven').textContent='premium-embedded';
+    }else{
+      document.body.classList.remove('has-premium-oven');
+      $('#asset-label').textContent='OVEN FALLBACK';
+      $('#telemetry-oven').textContent='fallback-css';
+    }
+  }
 
   function syncSelection(){
     const p=pizzas[selected],src=p.media();
@@ -117,5 +132,6 @@
   $$('.pizza-btn').forEach(btn=>btn.addEventListener('click',()=>{if(running)return;selected=btn.dataset.pizza;syncSelection()}));
   $('#play').addEventListener('click',play);$('#reset').addEventListener('click',reset);
   $('#choose-another').addEventListener('click',()=>{product.classList.remove('is-visible');product.style.opacity='0';setTimeout(()=>{product.style.visibility='hidden';reset();syncSelection()},420)});
+  initPremiumOven();
   syncSelection();
 })();
