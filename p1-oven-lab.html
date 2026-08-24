@@ -18,12 +18,12 @@
       <div><p class="eyebrow">P1.3 · PREMIUM OVEN INTEGRATION</p><h1>Can the approved mechanics survive a premium oven scene?</h1></div>
       <div class="status-cluster">
         <div class="status-chip"><span class="status-dot"></span><span id="status-label">IDLE</span></div>
-        <div class="status-chip secondary"><span class="status-dot asset"></span><span id="asset-label">OVEN FALLBACK</span></div>
+        <div class="status-chip secondary"><span class="status-dot asset"></span><span id="asset-label">OVEN LOADING</span></div>
       </div>
     </header>
 
     <section class="oven-stage" aria-label="Prueba premium de pala y horno">
-      <div id="premium-oven" class="premium-oven" aria-hidden="true"></div>
+      <img id="premium-oven-image" class="premium-oven-image" alt="" aria-hidden="true" decoding="async" />
       <div class="oven-backdrop"></div>
       <div class="oven-glow"></div>
       <div class="oven-frame">
@@ -55,7 +55,7 @@
         <div><span>Selected pizza</span><strong id="telemetry-pizza">pizza-margherita</strong></div>
         <div><span>Resolved media</span><strong id="telemetry-media">placeholder</strong></div>
         <div><span>State</span><strong id="telemetry-state">IDLE</strong></div>
-        <div><span>Oven asset</span><strong id="telemetry-oven">fallback-css</strong></div>
+        <div><span>Oven asset</span><strong id="telemetry-oven">loading</strong></div>
       </div>
     </section>
   </main>
