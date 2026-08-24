@@ -4,21 +4,26 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="theme-color" content="#080706" />
-  <title>P1.2 · Real Peel Mechanics Lab</title>
+  <title>P1.3 · Premium Oven Integration Lab</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Italiana&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="p1-oven-lab.css" />
   <link rel="stylesheet" href="p1-2-real-peel.css" />
+  <link rel="stylesheet" href="p1-3-premium-oven.css" />
 </head>
 <body>
   <main class="lab-shell">
     <header class="lab-head">
-      <div><p class="eyebrow">P1.2 · REAL PEEL MECHANICS</p><h1>Can the peel behave like a real tool?</h1></div>
-      <div class="status-chip"><span class="status-dot"></span><span id="status-label">IDLE</span></div>
+      <div><p class="eyebrow">P1.3 · PREMIUM OVEN INTEGRATION</p><h1>Can the approved mechanics survive a premium oven scene?</h1></div>
+      <div class="status-cluster">
+        <div class="status-chip"><span class="status-dot"></span><span id="status-label">IDLE</span></div>
+        <div class="status-chip secondary"><span class="status-dot asset"></span><span id="asset-label">OVEN FALLBACK</span></div>
+      </div>
     </header>
 
-    <section class="oven-stage" aria-label="Prueba física de pala y horno">
+    <section class="oven-stage" aria-label="Prueba premium de pala y horno">
+      <div id="premium-oven" class="premium-oven" aria-hidden="true"></div>
       <div class="oven-backdrop"></div>
       <div class="oven-glow"></div>
       <div class="oven-frame">
@@ -50,11 +55,12 @@
         <div><span>Selected pizza</span><strong id="telemetry-pizza">pizza-margherita</strong></div>
         <div><span>Resolved media</span><strong id="telemetry-media">placeholder</strong></div>
         <div><span>State</span><strong id="telemetry-state">IDLE</strong></div>
-        <div><span>Contract</span><strong>REAL TOOL AXIS · NO 3D</strong></div>
+        <div><span>Oven asset</span><strong id="telemetry-oven">fallback-css</strong></div>
       </div>
     </section>
   </main>
   <script src="p0-media-registry.js"></script>
+  <script src="p1-3-premium-oven.asset.js"></script>
   <script src="p1-oven-lab.js"></script>
 </body>
 </html>
