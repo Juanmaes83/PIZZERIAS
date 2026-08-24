@@ -21,46 +21,21 @@
         <div class="status-chip secondary"><span class="status-dot asset"></span><span id="asset-label">OVEN LOADING</span></div>
       </div>
     </header>
-
     <section class="oven-stage" aria-label="Prueba premium de pala y horno">
-      <img id="premium-oven-image" class="premium-oven-image" alt="" aria-hidden="true" decoding="async" />
-      <div class="oven-backdrop"></div>
-      <div class="oven-glow"></div>
-      <div class="oven-frame">
-        <div class="oven-mouth">
-          <div class="fire fire-a"></div><div class="fire fire-b"></div><div class="embers"></div>
-          <div class="occlusion-zone" aria-hidden="true"></div>
-        </div>
-      </div>
-      <div class="hearth-plane" aria-hidden="true"></div>
-      <div class="contact-shadow" aria-hidden="true"></div>
+      <img id="premium-oven-image" class="premium-oven-image" src="./assets/oven/p1-oven-master.webp" alt="" aria-hidden="true" decoding="async" />
+      <div class="oven-backdrop"></div><div class="oven-glow"></div>
+      <div class="oven-frame"><div class="oven-mouth"><div class="fire fire-a"></div><div class="fire fire-b"></div><div class="embers"></div><div class="occlusion-zone" aria-hidden="true"></div></div></div>
+      <div class="hearth-plane" aria-hidden="true"></div><div class="contact-shadow" aria-hidden="true"></div>
       <div id="peel" class="peel" aria-hidden="true"><div class="peel-handle"></div><div class="peel-head"><img id="peel-pizza" alt="" /></div></div>
-      <div id="foreground-product" class="foreground-product" aria-live="polite">
-        <img id="foreground-image" alt="" />
-        <div class="foreground-copy"><p id="foreground-kicker" class="eyebrow"></p><h2 id="foreground-name"></h2><p id="foreground-desc"></p><strong id="foreground-price"></strong><button id="choose-another" type="button">Elegir otra</button></div>
-      </div>
+      <div id="foreground-product" class="foreground-product" aria-live="polite"><img id="foreground-image" alt="" /><div class="foreground-copy"><p id="foreground-kicker" class="eyebrow"></p><h2 id="foreground-name"></h2><p id="foreground-desc"></p><strong id="foreground-price"></strong><button id="choose-another" type="button">Elegir otra</button></div></div>
     </section>
-
     <section class="controls">
-      <div class="pizza-picker" role="group" aria-label="Elegir pizza">
-        <button data-pizza="margherita" class="pizza-btn active">Margherita</button>
-        <button data-pizza="diavola" class="pizza-btn">Diavola</button>
-        <button data-pizza="mortadella" class="pizza-btn">Mortadella & Pistachio</button>
-      </div>
-      <div class="playback">
-        <button id="play" class="primary" type="button">PLAY OVEN</button>
-        <button id="reset" type="button">RESET</button>
-      </div>
-      <div class="telemetry">
-        <div><span>Selected pizza</span><strong id="telemetry-pizza">pizza-margherita</strong></div>
-        <div><span>Resolved media</span><strong id="telemetry-media">placeholder</strong></div>
-        <div><span>State</span><strong id="telemetry-state">IDLE</strong></div>
-        <div><span>Oven asset</span><strong id="telemetry-oven">loading</strong></div>
-      </div>
+      <div class="pizza-picker" role="group" aria-label="Elegir pizza"><button data-pizza="margherita" class="pizza-btn active">Margherita</button><button data-pizza="diavola" class="pizza-btn">Diavola</button><button data-pizza="mortadella" class="pizza-btn">Mortadella & Pistachio</button></div>
+      <div class="playback"><button id="play" class="primary" type="button">PLAY OVEN</button><button id="reset" type="button">RESET</button></div>
+      <div class="telemetry"><div><span>Selected pizza</span><strong id="telemetry-pizza">pizza-margherita</strong></div><div><span>Resolved media</span><strong id="telemetry-media">placeholder</strong></div><div><span>State</span><strong id="telemetry-state">IDLE</strong></div><div><span>Oven asset</span><strong id="telemetry-oven">loading</strong></div></div>
     </section>
   </main>
   <script src="p0-media-registry.js"></script>
-  <script src="p1-3-premium-oven.asset.js"></script>
   <script src="p1-oven-lab.js"></script>
 </body>
 </html>
