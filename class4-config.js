@@ -1,5 +1,9 @@
 /* P0 — Pizzeria source-of-truth configuration. Interaction engine remains inherited from Class 04. */
-const PM=window.PizzeriaMedia;
+const PM=window.PizzeriaMedia||{
+  brand:{logo:'https://placehold.co/360x120/111111/f3efe6?text=PIZZA+LAB'},
+  sections:{hero:'https://placehold.co/1920x1080/171714/f3efe6?text=PIZZERIA+HERO+PLACEHOLDER',origin:'https://placehold.co/1200x1500/211d18/f3efe6?text=DOUGH+%2B+FIRE',atmosphere:'https://placehold.co/1920x1080/151515/f3efe6?text=PIZZERIA+ATMOSPHERE',chef:'https://placehold.co/1200x1500/1b1a18/f3efe6?text=PIZZAIOLO'},
+  pizzas:{margherita:'https://placehold.co/1200x1200/16110e/f3efe6?text=MARGHERITA',diavola:'https://placehold.co/1200x1200/1c0f0d/f3efe6?text=DIAVOLA',mortadella:'https://placehold.co/1200x1200/171513/f3efe6?text=MORTADELLA',tartufo:'https://placehold.co/1200x1200/171611/f3efe6?text=TARTUFO',marinara:'https://placehold.co/1200x1200/15100d/f3efe6?text=MARINARA',quattro:'https://placehold.co/1200x1200/17140f/f3efe6?text=QUATTRO+FORMAGGI'}
+};
 window.RestaurantDefaults={
   id:'pizzeria-p0',schemaVersion:4,status:'draft',
   brand:{name:'PIZZA LAB',logoText:'PIZZA LAB',accent:'#ff5b35',ink:'#090908',paper:'#eee5d8',fontDisplay:'Italiana',fontBody:'DM Sans'},
@@ -12,13 +16,7 @@ window.RestaurantDefaults={
   chef:{index:'05 / Pizzaiolo',title:'Craft before spectacle.',quote:'“Primero una pizza creíble. Después hacemos magia con ella.”',badges:['48h dough','High heat','Seasonal toppings']},
   visit:{kicker:'Alicante · Demo P0',title:'Your table. Your pizza.',cta:'Pedir / reservar',addressLabel:'Address',address:'Dirección placeholder · Alicante',serviceLabel:'Service',service:'13:00 — 00:00',contactLabel:'Contact',contact:'hello@pizzalab.demo',bookingUrl:'#'},
   footer:{left:'PIZZA LAB',center:'P0 · Pizzeria Foundation',right:'Premium media pending'},
-  media:{
-    logo:{type:'image',url:PM.brand.logo,fit:'contain',position:'50% 50%'},
-    hero:{type:'image',url:PM.sections.hero,fit:'cover',position:'50% 50%'},
-    origin:{type:'image',url:PM.sections.origin,fit:'cover',position:'50% 50%'},
-    atmosphere:{type:'image',url:PM.sections.atmosphere,fit:'cover',position:'50% 50%'},
-    chef:{type:'image',url:PM.sections.chef,fit:'cover',position:'50% 50%'}
-  },
+  media:{logo:{type:'image',url:PM.brand.logo,fit:'contain',position:'50% 50%'},hero:{type:'image',url:PM.sections.hero,fit:'cover',position:'50% 50%'},origin:{type:'image',url:PM.sections.origin,fit:'cover',position:'50% 50%'},atmosphere:{type:'image',url:PM.sections.atmosphere,fit:'cover',position:'50% 50%'},chef:{type:'image',url:PM.sections.chef,fit:'cover',position:'50% 50%'}},
   dishes:[
     {id:'pizza-margherita',name:'Margherita',meta:'Tomato · Fior di latte · Basil',short:'The reference pizza: tomato, fior di latte, basil and olive oil.',price:'€12',image:PM.pizzas.margherita,ingredients:'Tomato · fior di latte · basil · olive oil',origin:'Napoli-inspired · local ingredients',technique:'Long fermentation · high heat',pairing:'Lager / light red',note:'If the simplest pizza fails, the system has nothing to hide behind.',allergens:'Gluten · dairy',enabled:true},
     {id:'pizza-diavola',name:'Diavola',meta:'Tomato · Spicy salami · Chilli',short:'Tomato, fior di latte, spicy salami and chilli heat.',price:'€15',image:PM.pizzas.diavola,ingredients:'Tomato · fior di latte · spicy salami · chilli',origin:'Italian classic',technique:'High heat · crisp edge',pairing:'IPA / red wine',note:'Heat should arrive after the first bite, not before.',allergens:'Gluten · dairy',enabled:true},
