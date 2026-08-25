@@ -4,57 +4,62 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="theme-color" content="#080706" />
-  <title>P1.2 · Real Peel Mechanics Lab</title>
+  <title>P1.3 · Premium Oven Integration Lab</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Italiana&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="p1-oven-lab.css" />
   <link rel="stylesheet" href="p1-2-real-peel.css" />
+  <link rel="stylesheet" href="p1-3-premium-oven.css" />
+  <style>
+    /* P1.3 FINAL VISUAL CONTRACT: the real oven is the stage background itself.
+       This intentionally removes the CSS oven from the visual stack so it can
+       never cover or replace the premium asset. */
+    .oven-stage{
+      background-color:#090706 !important;
+      background-image:url('./assets/oven/p1-oven-master.webp') !important;
+      background-repeat:no-repeat !important;
+      background-position:center center !important;
+      background-size:cover !important;
+    }
+    .premium-oven-image,.oven-frame,.hearth-plane{display:none !important;}
+    .oven-backdrop{z-index:1 !important;background:linear-gradient(180deg,rgba(5,4,3,.02),rgba(5,4,3,.16) 72%,rgba(5,4,3,.28)) !important;pointer-events:none;}
+    .oven-glow{z-index:2 !important;opacity:.28 !important;pointer-events:none;}
+    .contact-shadow{z-index:4 !important;}
+    .peel{z-index:5 !important;}
+    .foreground-product{z-index:10 !important;}
+  </style>
 </head>
 <body>
   <main class="lab-shell">
     <header class="lab-head">
-      <div><p class="eyebrow">P1.2 · REAL PEEL MECHANICS</p><h1>Can the peel behave like a real tool?</h1></div>
-      <div class="status-chip"><span class="status-dot"></span><span id="status-label">IDLE</span></div>
-    </header>
-
-    <section class="oven-stage" aria-label="Prueba física de pala y horno">
-      <div class="oven-backdrop"></div>
-      <div class="oven-glow"></div>
-      <div class="oven-frame">
-        <div class="oven-mouth">
-          <div class="fire fire-a"></div><div class="fire fire-b"></div><div class="embers"></div>
-          <div class="occlusion-zone" aria-hidden="true"></div>
-        </div>
+      <div><p class="eyebrow">P1.3 · PREMIUM OVEN INTEGRATION</p><h1>Can the approved mechanics survive a premium oven scene?</h1></div>
+      <div class="status-cluster">
+        <div class="status-chip"><span class="status-dot"></span><span id="status-label">IDLE</span></div>
+        <div class="status-chip secondary"><span class="status-dot asset"></span><span id="asset-label">OVEN MASTER · STAGE BG</span></div>
       </div>
-      <div class="hearth-plane" aria-hidden="true"></div>
+    </header>
+    <section class="oven-stage" aria-label="Prueba premium de pala y horno">
+      <div class="oven-backdrop"></div><div class="oven-glow"></div>
       <div class="contact-shadow" aria-hidden="true"></div>
       <div id="peel" class="peel" aria-hidden="true"><div class="peel-handle"></div><div class="peel-head"><img id="peel-pizza" alt="" /></div></div>
-      <div id="foreground-product" class="foreground-product" aria-live="polite">
-        <img id="foreground-image" alt="" />
-        <div class="foreground-copy"><p id="foreground-kicker" class="eyebrow"></p><h2 id="foreground-name"></h2><p id="foreground-desc"></p><strong id="foreground-price"></strong><button id="choose-another" type="button">Elegir otra</button></div>
-      </div>
+      <div id="foreground-product" class="foreground-product" aria-live="polite"><img id="foreground-image" alt="" /><div class="foreground-copy"><p id="foreground-kicker" class="eyebrow"></p><h2 id="foreground-name"></h2><p id="foreground-desc"></p><strong id="foreground-price"></strong><button id="choose-another" type="button">Elegir otra</button></div></div>
     </section>
-
     <section class="controls">
-      <div class="pizza-picker" role="group" aria-label="Elegir pizza">
-        <button data-pizza="margherita" class="pizza-btn active">Margherita</button>
-        <button data-pizza="diavola" class="pizza-btn">Diavola</button>
-        <button data-pizza="mortadella" class="pizza-btn">Mortadella & Pistachio</button>
-      </div>
-      <div class="playback">
-        <button id="play" class="primary" type="button">PLAY OVEN</button>
-        <button id="reset" type="button">RESET</button>
-      </div>
-      <div class="telemetry">
-        <div><span>Selected pizza</span><strong id="telemetry-pizza">pizza-margherita</strong></div>
-        <div><span>Resolved media</span><strong id="telemetry-media">placeholder</strong></div>
-        <div><span>State</span><strong id="telemetry-state">IDLE</strong></div>
-        <div><span>Contract</span><strong>REAL TOOL AXIS · NO 3D</strong></div>
-      </div>
+      <div class="pizza-picker" role="group" aria-label="Elegir pizza"><button data-pizza="margherita" class="pizza-btn active">Margherita</button><button data-pizza="diavola" class="pizza-btn">Diavola</button><button data-pizza="mortadella" class="pizza-btn">Mortadella & Pistachio</button></div>
+      <div class="playback"><button id="play" class="primary" type="button">PLAY OVEN</button><button id="reset" type="button">RESET</button></div>
+      <div class="telemetry"><div><span>Selected pizza</span><strong id="telemetry-pizza">pizza-margherita</strong></div><div><span>Resolved media</span><strong id="telemetry-media">placeholder</strong></div><div><span>State</span><strong id="telemetry-state">IDLE</strong></div><div><span>Oven asset</span><strong id="telemetry-oven">stage-background</strong></div></div>
     </section>
   </main>
   <script src="p0-media-registry.js"></script>
+  <script>
+    /* Compatibility shim: P1.2 runtime expects #premium-oven-image. It now exists
+       only as an invisible preloader/health probe; visual rendering is pure CSS background. */
+    const probe=document.createElement('img');
+    probe.id='premium-oven-image';probe.alt='';probe.setAttribute('aria-hidden','true');
+    probe.style.cssText='position:absolute;width:1px;height:1px;opacity:0;pointer-events:none';
+    probe.src='./assets/oven/p1-oven-master.webp';document.body.appendChild(probe);
+  </script>
   <script src="p1-oven-lab.js"></script>
 </body>
 </html>

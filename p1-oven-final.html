@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>P1 · Oven Final</title><link rel="stylesheet" href="./p1-oven-final.css"></head>
+<body>
+<main class="shell">
+<header class="head"><div><p class="eyebrow">P1 · OVEN FINAL</p><h1>Premium oven + approved peel mechanics</h1></div><div class="chip"><span id="status">PIZZA_SELECTED</span></div></header>
+<section id="stage" class="stage" aria-label="Horno premium">
+<div class="badge">OVEN BACKGROUND · <b>FIXED</b></div>
+<div class="contact-shadow"></div>
+<div id="peel" class="peel" aria-hidden="true"><div class="peel-handle"></div><div class="peel-head"><div id="peelPizza" class="pizza-disc">MARGHERITA</div></div></div>
+<div id="product" class="product" hidden><div id="heroPizza" class="hero-pizza">MARGHERITA</div><div class="copy"><p id="kicker" class="eyebrow"></p><h2 id="name"></h2><p id="desc"></p><strong id="price"></strong><button id="choose" type="button">Elegir otra</button></div></div>
+</section>
+<section class="controls">
+<div class="pizza-picker"><button class="pizza-btn active" data-pizza="margherita">Margherita</button><button class="pizza-btn" data-pizza="diavola">Diavola</button><button class="pizza-btn" data-pizza="mortadella">Mortadella & Pistachio</button></div>
+<div class="playback"><button id="play" class="primary">PLAY OVEN</button><button id="reset">RESET</button></div>
+<div class="telemetry"><div><span>Selected pizza</span><strong id="tpizza">pizza-margherita</strong></div><div><span>State</span><strong id="tstate">PIZZA_SELECTED</strong></div><div><span>Oven</span><strong>FIXED BACKGROUND</strong></div><div><span>Contract</span><strong>P1.2 · REAL PEEL</strong></div></div>
+</section></main>
+<script src="./p1-oven-final.js"></script></body></html>
